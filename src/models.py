@@ -31,7 +31,7 @@ class Planetas(Base):
 
 
 class Characters(Base):
-    __tablename__ = 'chraracters'
+    __tablename__ = 'characters'
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     height = Column(String(250), nullable=False)
@@ -48,7 +48,7 @@ class Fav_Planetas(Base):
     id = Column(Integer, primary_key=True)
     usario_id = Column(Integer, ForeignKey('usuario.id'),
         nullable=False)
-    planeta_id = Column(Integer, ForeignKey('planeta.id'),
+    planeta_id = Column(Integer, ForeignKey('planetas.id'),
         nullable=False)
 
 class Fav_Characters(Base):
@@ -56,7 +56,7 @@ class Fav_Characters(Base):
     id = Column(Integer, primary_key=True)
     usario_id = Column(Integer, ForeignKey('usuario.id'),
         nullable=False)
-    character_id = Column(Integer, ForeignKey('character.id'),
+    character_id = Column(Integer, ForeignKey('characters.id'),
         nullable=False)
 
 def to_dict(self):
